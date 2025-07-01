@@ -41,22 +41,22 @@
 
         <div class="flex space-x-5 items-center">
             <form action="search" method="POST">
-                <!-- {% csrf_token %} -->
+                {% csrf_token %}
                 <input type="search" name="search_term" placeholder="Search" class="bg-gray-700 p-2 rounded">
                 <button class="bg-red-600 text-white p-2 rounded hover:bg-red-500">Search</button>
             </form>
             <div class="relative">
-                <a href="#" class="block p-2">Welcome, User</a>
+                <a href="#" class="block p-2">Welcome, {{user.username}}</a>
                 <a href="/logout" class="block p-2">Logout</a>
             </div>
         </div>
     </header>
     <section class="relative py-20 px-10" style="background-image: url('{{featured_movie.image_cover.url}}'); background-size: cover; background-position: center;">
         <div>
-            <h1 style="color: black;" class="text-5xl mb-5">Movie Title</h1>
-            <p style="color: black;" class="mb-5">Movie Descriptioin</p>
+            <h1 style="color: black;" class="text-5xl mb-5">{{featured_movie.title}}</h1>
+            <p style="color: black;" class="mb-5">{{featured_movie.description}}</p>
             <div class="flex space-x-4">
-                <a href="">
+                <a href="/movie/{{featured_movie.uu_id}}">
                     <button class="bg-red-600 text-white p-2 px-5 rounded hover:bg-red-500">Play</button>
                 </a>
             </div>
@@ -110,7 +110,7 @@
         </div>
     </div>
 
-    <!-- <script>
+    <script>
         function showModal(element) {
             // Retrieve data attributes
             const title = element.getAttribute('data-title');
@@ -179,7 +179,7 @@
                 }
             });
         }
-    </script> -->
+    </script>
 </body>
 
 </html>
