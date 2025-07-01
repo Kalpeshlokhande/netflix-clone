@@ -26,10 +26,15 @@ def movie(request,pk):
     }
     return render(request,'movie.html', context)
     
-
+@login_required(login_url='login')
 def my_list(request):
-    pass
+    context={
 
+    }
+    return render(request,'my_list.html',context)
+
+
+@login_required(login_url='login')
 def add_to_list(request):
     if request.method=='POST':
         movie_url_id=request.POST.get('movie_id')
